@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis y Diseño Orientado a Objetos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestión de Servicio Eléctrico</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="marco-teorico.html">Marco Teórico</a></li>
+                <li><a href="analisis-diseno-estructurado.html">Análisis Estructurado</a></li>
+                <li><a href="analisis-diseno-objetos.html" class="active">Análisis Orientado a Objetos</a></li>
+                <li><a href="biblioteca.html">Videos</a></li>
+                <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Análisis y Diseño Orientado a Objetos</h2>
+
+        <!-- Diagrama UML -->
+        <section class="analisis-objetos">
+            <h3>Diagrama UML</h3>
+            <img src="ruta-diagrama-uml.png" alt="Diagrama UML" class="imagen-diagrama">
+            <div class="informacion">
+                <h4>Información del Diagrama UML</h4>
+                <section>
+                    <h4>1. EmpresaLuz</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>nombreE: string</li>
+                        <li>nroEmpleados: int</li>
+                        <li>empleados: vector&lt;Empleado&gt;</li>
+                        <li>clientes: vector&lt;Cliente&gt;</li>
+                    </ul>
+                    <p><strong>Funciones:</strong></p>
+                    <ul>
+                        <li>actualizarServicio()</li>
+                        <li>cortarServicio()</li>
+                    </ul>
+                    <p><strong>Conexiones:</strong> Relación de composición con Empleado y Cliente.</p>
+                </section>
+        
+                <section>
+                    <h4>2. Factura</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>idFactura: string</li>
+                        <li>idCliente: string</li>
+                        <li>fechaEmision: string</li>
+                        <li>fechaVencimiento: string</li>
+                        <li>montoTotal: float</li>
+                    </ul>
+                    <p><strong>Conexiones:</strong> Asociación con Cliente.</p>
+                </section>
+        
+                <section>
+                    <h4>3. Cliente</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>idCliente: string</li>
+                        <li>sugerencias: string</li>
+                        <li>facturas: vector&lt;Factura&gt;</li>
+                    </ul>
+                    <p><strong>Funciones:</strong></p>
+                    <ul>
+                        <li>realizarPago()</li>
+                    </ul>
+                    <p><strong>Conexiones:</strong> Herencia de Persona. Asociación con Factura y CuentaCliente.</p>
+                </section>
+        
+                <section>
+                    <h4>4. Persona (Clase base)</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>nombre: string</li>
+                        <li>id: int</li>
+                        <li>direccion: string</li>
+                        <li>telefono: int</li>
+                        <li>email: string</li>
+                    </ul>
+                </section>
+        
+                <section>
+                    <h4>5. RecursoHumano</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>consultas: vector&lt;string&gt;</li>
+                    </ul>
+                    <p><strong>Funciones:</strong></p>
+                    <ul>
+                        <li>hacerConsulta()</li>
+                    </ul>
+                </section>
+        
+                <section>
+                    <h4>6. Empleado</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>sueldo: int</li>
+                        <li>idEmpleado: string</li>
+                        <li>herramientas: vector&lt;string&gt;</li>
+                    </ul>
+                    <p><strong>Funciones:</strong></p>
+                    <ul>
+                        <li>hacerMantenimiento()</li>
+                        <li>cobrar()</li>
+                    </ul>
+                    <p><strong>Conexiones:</strong> Herencia de Persona. Asociación con Mantenimiento.</p>
+                </section>
+        
+                <section>
+                    <h4>7. CuentaCliente</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>idCliente: string</li>
+                        <li>idCuenta: string</li>
+                        <li>estadoCuenta: string</li>
+                        <li>tipoServicio: string</li>
+                        <li>deudas: bool</li>
+                    </ul>
+                </section>
+        
+                <section>
+                    <h4>8. ServicioLuz</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>idMedidor: string</li>
+                        <li>saldo: int</li>
+                        <li>estadoDeudas: bool</li>
+                    </ul>
+                    <p><strong>Funciones:</strong></p>
+                    <ul>
+                        <li>actualizarServicio()</li>
+                        <li>cortarServicio()</li>
+                    </ul>
+                </section>
+        
+                <section>
+                    <h4>9. Medidor</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>idMedidor: string</li>
+                        <li>idCliente: string</li>
+                        <li>fechaLectura: string</li>
+                        <li>valorLectura: int</li>
+                        <li>ubicacion: string</li>
+                        <li>fechaInstalacion: string</li>
+                        <li>estado: string</li>
+                    </ul>
+                    <p><strong>Funciones:</strong></p>
+                    <ul>
+                        <li>realizarLectura()</li>
+                        <li>calcularSaldo()</li>
+                        <li>getEstado()</li>
+                    </ul>
+                </section>
+        
+                <section>
+                    <h4>10. Mantenimiento</h4>
+                    <p><strong>Atributos:</strong></p>
+                    <ul>
+                        <li>sueldo: int</li>
+                        <li>idEmpleado: string</li>
+                        <li>herramientas: vector&lt;string&gt;</li>
+                    </ul>
+                    <p><strong>Funciones:</strong></p>
+                    <ul>
+                        <li>hacerMantenimiento()</li>
+                    </ul>
+                    <p><strong>Conexiones:</strong> Asociación con Empleado.</p>
+                </section>
+        
+                <section>
+                    <h4>Conexiones Principales</h4>
+                    <ul>
+                        <li>EmpresaLuz tiene relaciones de composición con Empleado y Cliente.</li>
+                        <li>Cliente está asociado a Factura y CuentaCliente.</li>
+                        <li>Empleado está asociado a Mantenimiento.</li>
+                        <li>ServicioLuz se conecta con Medidor.</li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

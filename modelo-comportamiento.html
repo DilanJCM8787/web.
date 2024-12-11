@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Comportamiento - Sistema de Gestión de Servicio Eléctrico</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .diagrama-cajitas {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .cajita {
+            background-color: #008CBA;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cajita:hover {
+            background-color: #005f6b;
+        }
+
+        .imagen-diagrama {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .imagen-diagrama img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            background-color: #008CBA;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background-color: #005f6b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestión de Servicio Eléctrico</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="marco-teorico.html">Marco Teórico</a></li>
+                <li><a href="analisis-diseno-estructurado.html">Análisis Estructurado</a></li>
+                <li><a href="analisis-diseno-objetos.html">Análisis Orientado a Objetos</a></li>
+                <li><a href="biblioteca.html">Videos</a></li>
+                <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Diagramas del Sistema</h2>
+        <div class="diagrama-cajitas">
+            <div class="cajita" onclick="mostrarImagen('nivel0')">Nivel 0</div>
+            <div class="cajita" onclick="mostrarImagen('nivel1')">Nivel 1</div>
+            <div class="cajita" onclick="mostrarImagen('nivel2facturacion')">Nivel 2 - Facturación</div>
+            <div class="cajita" onclick="mostrarImagen('nivel2lectura')">Nivel 2 - Lectura de Medidor</div>
+            <div class="cajita" onclick="mostrarImagen('nivel2pago')">Nivel 2 - Pago</div>
+            <div class="cajita" onclick="mostrarImagen('nivel2mantenimiento')">Nivel 2 - Mantenimiento</div>
+            <div class="cajita" onclick="mostrarImagen('diagramaER')">Diagrama ER</div>
+            <div class="cajita" onclick="mostrarImagen('diagramaTransiciones')">Diagrama de Transiciones</div>
+        </div>
+
+        <!-- Imágenes del diagrama -->
+        <div id="nivel0" class="imagen-diagrama">
+            <img src="ruta-imagen-dfd-nivel-0.jpg" alt="Diagrama Nivel 0">
+        </div>
+        <div id="nivel1" class="imagen-diagrama">
+            <img src="ruta-imagen-dfd-nivel-1.jpg" alt="Diagrama Nivel 1">
+        </div>
+        <div id="nivel2facturacion" class="imagen-diagrama">
+            <img src="ruta-imagen-dfd-nivel-2-facturacion.jpg" alt="Diagrama Nivel 2 - Facturación">
+        </div>
+        <div id="nivel2lectura" class="imagen-diagrama">
+            <img src="ruta-imagen-dfd-nivel-2-lectura.jpg" alt="Diagrama Nivel 2 - Lectura de Medidor">
+        </div>
+        <div id="nivel2pago" class="imagen-diagrama">
+            <img src="ruta-imagen-dfd-nivel-2-pago.jpg" alt="Diagrama Nivel 2 - Pago">
+        </div>
+        <div id="nivel2mantenimiento" class="imagen-diagrama">
+            <img src="ruta-imagen-dfd-nivel-2-mantenimiento.jpg" alt="Diagrama Nivel 2 - Mantenimiento">
+        </div>
+        <div id="diagramaER" class="imagen-diagrama">
+            <img src="ruta-diagrama-er.png" alt="Diagrama Entidad-Relación">
+        </div>
+        <div id="diagramaTransiciones" class="imagen-diagrama">
+            <img src="ruta-imagen-diagrama-transiciones.jpg" alt="Diagrama de Transiciones">
+        </div>
+
+        <!-- Sección de información -->
+        <h2>Información Detallada</h2>
+        <div id="info" class="info-section">
+            <h3>Descripción de los Diagramas</h3>
+            <h4>Nivel 0</h4>
+            <p>El diagrama de nivel 0 muestra una vista general del sistema, destacando los procesos principales y las interacciones con entidades externas.</p>
+            
+            <h4>Nivel 1</h4>
+            <p>Este nivel desglosa los procesos principales en subprocesos más detallados, mostrando flujos de datos internos.</p>
+            
+            <h4>Nivel 2 - Facturación</h4>
+            <p>Representa los detalles del proceso de facturación, incluyendo la emisión y registro de pagos.</p>
+            
+            <h4>Nivel 2 - Lectura de Medidor</h4>
+            <p>Describe cómo se recopilan y almacenan las lecturas del medidor para calcular el consumo.</p>
+            
+            <h4>Nivel 2 - Pago</h4>
+            <p>Especifica cómo se registran y validan los pagos realizados por los usuarios.</p>
+            
+            <h4>Nivel 2 - Mantenimiento</h4>
+            <p>Incluye las actividades de programación y ejecución de mantenimientos en el sistema.</p>
+            
+            <h4>Diagrama ER</h4>
+            <p>El diagrama entidad-relación muestra las entidades clave, como Cliente, Factura y Medidor, y sus interrelaciones. Ejemplo: un Cliente tiene muchas Facturas.</p>
+            
+            <h4>Diagrama de Transiciones</h4>
+            <p>Detalla los cambios de estado en procesos específicos, como la transición de una factura de pendiente a pagada.</p>
+            <h3>Diccionario de Datos</h3>
+            <ul>
+                <li><span>Cliente:</span> 
+                    <ul>
+                        <li>CI_Cliente: Identificación única del cliente (clave primaria).</li>
+                        <li>Nombre: Nombre completo del cliente.</li>
+                        <li>Dirección: Dirección del cliente.</li>
+                        <li>Teléfono: Número de contacto del cliente.</li>
+                        <li>Correo electrónico: Dirección de correo electrónico del cliente.</li>
+                    </ul>
+                </li>
+                <li><span>Factura:</span>
+                    <ul>
+                        <li>ID_Factura: Identificación única de la factura (clave primaria).</li>
+                        <li>Fecha_Emisión: Fecha de emisión de la factura.</li>
+                        <li>Monto: Monto total de la factura.</li>
+                        <li>Estado: Estado de la factura (pendiente, pagada, etc.).</li>
+                        <li>Fecha_Vencimiento: Fecha límite de pago de la factura.</li>
+                        <li>CI_Cliente: Identificación del cliente al que se le emite la factura (clave foránea).</li>
+                    </ul>
+                </li>
+                <li><span>Pago:</span>
+                    <ul>
+                        <li>ID_Pago: Identificación única del pago (clave primaria).</li>
+                        <li>Monto: Monto pagado.</li>
+                        <li>Fecha_Pago: Fecha en que se realizó el pago.</li>
+                        <li>Método_Pago: Método de pago (transferencia, tarjeta de crédito, etc.).</li>
+                        <li>ID_Factura: Identificación de la factura que fue pagada (clave foránea).</li>
+                        <li>CI_Cliente: Identificación del cliente que realiza el pago (clave foránea).</li>
+                    </ul>
+                </li>
+                <li><span>Medidor:</span>
+                    <ul>
+                        <li>ID_Medidor: Identificación única del medidor (clave primaria).</li>
+                        <li>Tipo: Tipo de medidor (eléctrico, agua, etc.).</li>
+                        <li>Ubicación: Ubicación del medidor.</li>
+                        <li>CI_Cliente: Identificación del cliente al que pertenece el medidor (clave foránea).</li>
+                    </ul>
+                </li>
+                <li><span>Lectura:</span>
+                    <ul>
+                        <li>ID_Lectura: Identificación única de la lectura (clave primaria).</li>
+                        <li>Fecha_Lectura: Fecha en que se tomó la lectura.</li>
+                        <li>Consumo: Cantidad de energía consumida.</li>
+                        <li>ID_Medidor: Identificación del medidor leído (clave foránea).</li>
+                    </ul>
+                </li>
+                <li><span>Mantenimiento:</span>
+                    <ul>
+                        <li>ID_Mantenimiento: Identificación única del mantenimiento (clave primaria).</li>
+                        <li>Fecha: Fecha en que se realizó el mantenimiento.</li>
+                        <li>Descripción: Descripción del trabajo realizado.</li>
+                        <li>Estado: Estado del mantenimiento.</li>
+                        <li>ID_Empleado: Identificación del empleado que realizó el mantenimiento (clave foránea).</li>
+                    </ul>
+                </li>
+                <li><span>Empleado:</span>
+                    <ul>
+                        <li>CI_Empleado: Identificación única del empleado (clave primaria).</li>
+                        <li>Nombre: Nombre del empleado.</li>
+                        <li>Cargo: Cargo del empleado.</li>
+                        <li>Teléfono: Número de contacto del empleado.</li>
+                        <li>Correo electrónico: Dirección de correo electrónico del empleado.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <a href="javascript:history.back()" class="back-button">Volver a la página anterior</a>
+    </main>
+
+    <script>
+        function mostrarImagen(id) {
+            document.querySelectorAll('.imagen-diagrama').forEach(function(imagen) {
+                imagen.style.display = 'none';
+            });
+            var imagenSeleccionada = document.getElementById(id);
+            if (imagenSeleccionada) {
+                imagenSeleccionada.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
